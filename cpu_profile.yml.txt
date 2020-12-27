@@ -1,0 +1,12 @@
+---
+- name: CPU Profiling
+  hosts: localhost
+  become_user: student
+  become: yes
+  ignore_errors: true
+  tasks:
+    - name: Control node CPU and memory profile
+      shell: cgcreate -a student:student -t student:student -g cpuacct,memory,pids:EX447_CPU_Stat
+    - name: profiling
+      shell: cgexec -g cpuacct,memory,pids:EX447_CPU_Stat ansible-playbook install.yml
+

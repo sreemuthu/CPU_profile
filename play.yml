@@ -1,0 +1,6 @@
+---
+- name: cpu performance
+  hosts: localhost
+  gather_facts: false
+  become: yes
+  
